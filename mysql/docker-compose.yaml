@@ -2,13 +2,22 @@ version: '3.8'
 
 services:
   db:
-    container_name: "isucon-db"
+    container_name: "isucon-db-main"
     build:
-      context: docker
+      context: docker/main
     platform: linux/x86_64
     environment:
       - MYSQL_ROOT_PASSWORD
       - MYSQL_DATABASE
       - MYSQL_USER
       - MYSQL_PASSWORD
-  
+  db-replica:
+    container_name: "isucon-db-replcia"
+    build:
+      context: docker/replica
+    platform: linux/x86_64
+    environment:
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
