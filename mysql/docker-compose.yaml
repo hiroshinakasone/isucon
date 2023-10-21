@@ -2,8 +2,9 @@ version: '3.8'
 
 services:
   db:
+    container_name: "isucon-db"
     build:
-      context: .
+      context: docker
     platform: linux/x86_64
     environment:
       - MYSQL_ROOT_PASSWORD
