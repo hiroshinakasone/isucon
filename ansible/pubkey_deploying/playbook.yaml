@@ -1,16 +1,16 @@
 - name: Deploy public keys
   hosts: servers
   user: ubuntu
+  vars_files:
+    - var.yaml
   tasks:
-    - name: Deploy authorized_keys
+    - name: Set key authorized keys
       become: true
       become_user: isucon
       become_method: sudo
-      ansible.builtin.copy:
-        src: ./authorized_keys
-        dest: /home/isucon/.ssh/authorized_keys
-        # dest: /home/isucon/.ssh/authorized_keys_{{ansible_date_time.epoch}}.bak
-        owner: isucon
-        group: isucon
-        mode: "0600"
-        backup: true
+      ansible.posix.authorized_key:
+        user: isucon
+        state: present
+        key: "{{ item.key }}"
+      with_items:
+        - "{{ keys }}"
