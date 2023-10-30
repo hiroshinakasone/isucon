@@ -4,7 +4,7 @@
   vars_files:
     - var.yaml
   tasks:
-    - name: Set key authorized keys
+    - name: Set authorized keys
       become: true
       become_user: isucon
       become_method: sudo
