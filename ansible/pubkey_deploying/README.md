@@ -1,4 +1,4 @@
-# README
+# Adding SSH public keys to server
 
 ## Execution
 ```sh
