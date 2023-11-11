@@ -1,18 +1,12 @@
 all:
-  vars:
-    ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
   children:
     nginx:
       hosts:
         nginx01:
           ansible_host: 127.0.0.1
-    app:
+    webapp:
       hosts:
-        app01:
-          ansible_host: 127.0.0.1
-        app02:
-          ansible_host: 127.0.0.1
-        app03:
+        webapp01:
           ansible_host: 127.0.0.1
     db:
       hosts:
