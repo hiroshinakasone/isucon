@@ -1,12 +1,8 @@
 - name: Deploy configuration files
   become: true
-  copy:
-    src: "{{ item }}"
-    dest: "/{{ item }}"
-    owner: root
-    group: root
-    mode: "0644"
-    backup: true
+  ansible.posix.synchronize:
+    src: etc/mysql/
+    dest: /etc/mysql/
+    mode: push
+    recursive: true
   notify: restart_mysql
-  with_items:
-    - etc/mysql/mysql.conf.d/mysqld.cnf
