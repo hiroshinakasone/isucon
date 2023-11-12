@@ -79,12 +79,17 @@ max_binlog_size   = 100M
 
 innodb_buffer_pool_size = 3G
 innodb_buffer_pool_instances = 3
+#innodb_buffer_pool_dump_pct = 25
+#innodb_buffer_pool_load_at_startup = ON
+#innodb_buffer_pool_dump_at_shutdown = ON
 
-innodb_buffer_pool_dump_pct = 25
-innodb_buffer_pool_load_at_startup = ON
-innodb_buffer_pool_dump_at_shutdown = ON
+#innodb_log_file_size = 1G
+#innodb_log_files_in_group = 2
 
-innodb_flush_log_at_trx_commit = 2
+#innodb_log_buffer_size = 32M
+#innodb_flush_log_at_trx_commit = 2
+#innodb_flush_log_at_timeout = 2 # seconds
 
-innodb_log_file_size = 1G
-innodb_log_files_in_group = 2
+#innodb_flush_method = O_DIRECT
+
+#innodb_use_native_aio = 0
