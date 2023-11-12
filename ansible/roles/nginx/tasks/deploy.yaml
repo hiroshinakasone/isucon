@@ -1,8 +1,12 @@
 - name: Deploy configuration files
   become: true
-  ansible.posix.synchronize:
-    src: etc/nginx/
-    dest: /etc/nginx/
-    mode: push
-    recursive: true
+  copy:
+    src: "{{ item }}"
+    dest: "/{{ item }}"
+    owner: root
+    group: root
+    mode: "0644"
   notify: restart_nginx
+  with_items:
+    - etc/nginx/nginx.conf
+    - etc/nginx/sites-available/isuconquest.conf
